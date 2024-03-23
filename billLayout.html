@@ -1,0 +1,375 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .bill {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .bill-header {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .bill-header h2 {
+            margin: 0;
+            color: #333;
+        }
+        .bill-details {
+            margin-bottom: 10px;
+        }
+        .bill-details p {
+            padding-top: 10px;
+            margin: 5px 0;
+        }
+        .payButton {
+            margin-right: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bill">
+            <div class="bill-header">
+                <h2>Electric Bill</h2>
+            </div>
+            <div class="bill-details">
+                <p><strong>Bill ID:</strong> 123456</p>
+                <p><strong>Amount:</strong> $50.00</p>
+                <p><strong>Due Date:</strong> 2024-02-28</p>
+                <p><strong>Payment Date:</strong> 2024-02-25</p>
+            </div>
+            <div >
+                <p>Total: $50.00</p>
+            </div>
+
+            <div class="payButton"><button>Pay Now</button></div>
+        </div>
+    </div>
+</body>
+</html>
+
+second oness
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electric Bills</title>
+<style>
+    /* Add your CSS styles here */
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .bill {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative; /* Add position relative for positioning the close button */
+    }
+    .bill-header {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .bill-header h2 {
+        margin: 0;
+        color: #333;
+    }
+    .bill-details {
+        margin-bottom: 10px;
+    }
+    .bill-details p {
+        padding-top: 10px;
+        margin: 5px 0;
+    }
+    .payButton {
+        margin-right: 20px;
+        text-align: right;
+        font-weight: bold;
+    }
+    .closeButton {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Bill Type</th>
+                <th>Bill ID</th>
+                <th>Amount</th>
+                <th>Due Date</th>
+                <th>Payment Date</th>
+                <th>Payment Status</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="billTableBody">
+            <!-- JavaScript will dynamically generate rows here -->
+        </tbody>
+    </table>
+</div>
+
+<div class="container" id="displayRequest">
+    <!-- Displayed content will be placed here -->
+</div>
+
+<script>
+    // Function to create bill details
+    function createBill(billID, amount, DueDate, paymentDate, paymentStatus) {
+        var displayContainer = document.getElementById("displayRequest");
+        var containerDiv = document.createElement('div');
+        containerDiv.classList.add('container');
+
+        var billDiv = document.createElement('div');
+        billDiv.classList.add('bill');
+
+        var billHeaderDiv = document.createElement('div');
+        billHeaderDiv.classList.add('bill-header');
+        billHeaderDiv.innerHTML = '<h2>Electric Bill</h2>';
+
+        var billDetailsDiv = document.createElement('div');
+        billDetailsDiv.classList.add('bill-details');
+        billDetailsDiv.innerHTML = '<p><strong>Bill ID:</strong> ' + billID + '</p>' +
+            '<p><strong>Amount:</strong> Rs.' + amount + '</p>' +
+            '<p><strong>Due Date:</strong> ' + DueDate + '</p>' +
+            '<p><strong>Payment Date:</strong> ' + paymentDate + '</p>' +
+            '<p><strong>Payment Status:</strong> ' + paymentStatus + '</p>';
+
+        var totalDiv = document.createElement('div');
+        totalDiv.innerHTML = '<p>Total: $50.00</p>';
+
+        var payButtonDiv = document.createElement('div');
+        payButtonDiv.classList.add('payButton');
+        payButtonDiv.innerHTML = '<button>Pay Now</button>';
+
+        var closeButton = document.createElement('span');
+        closeButton.classList.add('closeButton');
+        closeButton.innerHTML = 'X';
+        closeButton.onclick = function() {
+            containerDiv.style.display = 'none';
+        };
+
+        billHeaderDiv.appendChild(closeButton);
+
+        billDiv.appendChild(billHeaderDiv);
+        billDiv.appendChild(billDetailsDiv);
+        billDiv.appendChild(totalDiv);
+        billDiv.appendChild(payButtonDiv);
+
+        containerDiv.appendChild(billDiv);
+        displayContainer.innerHTML = "";
+        displayContainer.appendChild(containerDiv);
+    }
+
+    // Sample function to generate bill data and display details
+    function showDetails(billID, amount, DueDate, paymentDate, paymentStatus) {
+        createBill(billID, amount, DueDate, paymentDate, paymentStatus);
+    }
+
+    // Sample data for demonstration
+    var billsData = [
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        // Add more bill data here as needed
+    ];
+
+    // Function to create table rows from bills data
+    // function createBillRows(data) {
+    //     var tableBody = document.getElementById("billTableBody");
+    //     data.forEach(function(bill) {
+    //         var row = document.createElement("tr");
+    //         row.innerHTML = `
+    //             <td>${bill.type}</td>
+    //             <td>${bill.id}</td>
+    //             <td>${bill.amount}</td>
+    //             <td>${bill.dueDate}</td>
+    //             <td>${bill.paymentDate}</td>
+    //             <td>${bill.status}</td>
+    //             <td>${bill.total}</td>
+    //             <td><button onclick="showDetails(${bill.id}, '${bill.amount}', '${bill.dueDate}', '${bill.paymentDate}', '${bill.status}')">View Details</button></td>
+    //         `;
+    //         tableBody.appendChild(row);
+    //     });
+    // }
+
+    // // Call the function to generate table rows
+    // createBillRows(billsData);
+</script>
+
+</body>
+</html>
+
+
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electric Bills</title>
+<style>
+    /* Add your CSS styles here */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+   
+</style>
+</head>
+<body>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Bill Type</th>
+                <th>Bill ID</th>
+                <th>Amount</th>
+                <th>Due Date</th>
+                <th>Payment Date</th>
+                <th>Payment Status</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="billTableBody">
+            <!-- JavaScript will dynamically generate rows here -->
+        </tbody>
+    </table>
+</div>
+
+<div class="details-container">
+    <div class="details" id="details">
+        <div class="bill">
+            <div class="bill-header">
+                <h2>Electric Bill</h2>
+            </div>
+            <div class="bill-details">
+                <p><strong>Bill ID:</strong> <span id="billId"></span></p>
+                <p><strong>Amount:</strong> <span id="amount"></span></p>
+                <p><strong>Due Date:</strong> <span id="dueDate"></span></p>
+                <p><strong>Payment Date:</strong> <span id="paymentDate"></span></p>
+                <p><strong>Payment Status:</strong> <span id="paymentStatus"></span></p>
+                <p>Total: <span id="total"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Sample data for demonstration
+    var billsData = [
+    { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },
+        { type: "Electric Bill", id: 123456, amount: "$50.00", dueDate: "2024-02-28", paymentDate: "2024-02-25", status: "Paid", total: "$50.00" },        // Add more bill data here as needed
+    ];
+
+    // Function to create table rows from bills data
+    function createBillRows(data) {
+        var tableBody = document.getElementById("billTableBody");
+        data.forEach(function(bill) {
+            var row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${bill.type}</td>
+                <td>${bill.id}</td>
+                <td>${bill.amount}</td>
+                <td>${bill.dueDate}</td>
+                <td>${bill.paymentDate}</td>
+                <td>${bill.status}</td>
+                <td>${bill.total}</td>
+                <td><button class="view-details">View Details</button></td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Call the function to generate table rows
+    createBillRows(billsData);
+
+    // Get reference to details div
+    var detailsDiv = document.getElementById("details");
+
+    // Function to show details
+    function showDetails(bill) {
+        document.getElementById("billId").textContent = bill.id;
+        document.getElementById("amount").textContent = bill.amount;
+        document.getElementById("dueDate").textContent = bill.dueDate;
+        document.getElementById("paymentDate").textContent = bill.paymentDate;
+        document.getElementById("paymentStatus").textContent = bill.status;
+        document.getElementById("total").textContent = bill.total;
+        detailsDiv.style.display = "block";
+    }
+
+
+
+    // Add event listener to each "View Details" button
+    var viewDetailsButtons = document.querySelectorAll(".view-details");
+    viewDetailsButtons.forEach(function(button, index) {
+        button.addEventListener("click", function() {
+            showDetails(billsData[index]);
+        });
+    });
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,107 @@
+<!-- user tables -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto ;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        
+        <td>User ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Phone Number</td>
+        <td>Address</td>
+        <td>select</td>
+    </tr>
+    <tr>
+        <td>Gopi</td>
+        <td>Gopika</td>
+        <td>T</td>
+        <td>987654321</td>
+        <td>8/142, South Street, kadayam, 612345</td>
+        <td><button>View details</button> </td>
+    </tr>
+</table>
+
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Row Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="myTable">
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+        </tr>
+    </table>
+
+    <script>
+        // JavaScript code to add rows to the table dynamically
+        var table = document.getElementById("myTable");
+
+        // Add row 1
+        var row1 = table.insertRow();
+        var cell1_1 = row1.insertCell(0);
+        var cell1_2 = row1.insertCell(1);
+        cell1_1.innerHTML = "Row 1, Column 1";
+        cell1_2.innerHTML = "Row 1, Column 2";
+
+        // Add row 2
+        var row2 = table.insertRow();
+        var cell2_1 = row2.insertCell(0);
+        var cell2_2 = row2.insertCell(1);
+        cell2_1.innerHTML = "Row 2, Column 1";
+        cell2_2.innerHTML = "Row 2, Column 2";
+    </script>
+
+</body>
+
+</html>
+

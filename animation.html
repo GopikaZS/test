@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Window Animation</title>
+<style>
+    /* CSS styles */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Hide overflow content */
+    }
+
+    .animated-div {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(251, 206, 206);
+        animation: animateDiv 5s linear infinite; /* Animation name, duration, timing function, and iteration count */
+    }
+
+    @keyframes animateDiv {
+        0% {
+            transform: translateY(0); /* Initial state */
+        }
+        50% {
+            transform: translateY(50%); /* Midway state */
+        }
+        100% {
+            transform: translateY(0); /* Final state */
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="animated-div"></div>
+</div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falling Div Animation</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .falling-div {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    top: -50px; /* Initial position above the container */
+    animation: fallDown 2s linear forwards;
+  }
+
+  @keyframes fallDown {
+    0% {
+      top: -50px; /* Initial position */
+    }
+    100% {
+      top: calc(100% - 50px); /* Final position at the bottom of the container */
+    }
+  }
+
+  /* Additional falling divs */
+  .falling-div:nth-child(2) {
+    background-color: red;
+    left: 20%; /* Adjust the horizontal position */
+    animation-delay: 0.5s; /* Delay the animation start */
+  }
+
+  .falling-div:nth-child(3) {
+    background-color: green;
+    left: 40%; /* Adjust the horizontal position */
+    animation-delay: 1s; /* Delay the animation start */
+  }
+
+  .falling-div:nth-child(4) {
+    background-color: yellow;
+    left: 60%; /* Adjust the horizontal position */
+    animation-delay: 1.5s; /* Delay the animation start */
+  }
+
+  .falling-div:nth-child(5) {
+    background-color: orange;
+    left: 80%; /* Adjust the horizontal position */
+    animation-delay: 2s; /* Delay the animation start */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Falling divs -->
+  <div class="falling-div"></div>
+  <div class="falling-div"></div>
+  <div class="falling-div"></div>
+  <div class="falling-div"></div>
+  <div class="falling-div"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

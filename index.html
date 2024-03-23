@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div class="homeContainer">
+        <div>
+            <header class="homeHeader">
+                <div id="ebmLogo"></div>
+                <div class="homeHeaderMenu">
+                    <p>Home</p>
+                    <p>About us</p>
+                    <p onclick="newUserForm()">New Registeration</p>
+                    <p onclick="checkRequestStatus()">Request Status</p>
+                </div>
+                <div class="loginText" onclick="loginPage()">Login</div>
+            </header>
+
+          
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- login page layout -->
+
+    <div class="loginContainer">
+        <h1>logo</h1>
+        <div class="loginLayout">
+
+            <h2>Welcome to Login</h2>
+            <div class="loginForm">
+                <div class="loginInputContainer"> <label>User name</label> <input type="text" name="username"
+                        placeholder="Username" required></div>
+                <div class="loginInputContainer"> <label>Password</label><input type="password" name="password"
+                        placeholder="Password" required></div>
+                <button type="submit">Login</button>
+                <p class="loginNewUser">Don't have an account yet? <span onclick="newUserLayout()">New Registration?</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- New user input -->
+
+    <div class="newUserInputForm">
+        <div class="userForm">
+            <h2> New registeration </h2>
+            <div id="addNewUserForm">
+                <div class="newUserInputContainer"><label class="newUserText">First Name</label>
+                    <input type="text" id="firstName" required>
+                </div>
+
+                <div class="newUserInputContainer"><label class="newUserText">Last Name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                
+                 <div class="newUserInputContainer"><label class="newUserText">Phone number</label>
+                    <input type="text" id="phoneNumber" required>
+                </div>
+
+                <div class="newUserInputContainer"><label class="newUserText">Street</label>
+                    <input type="text" id="street" required>
+                </div>
+
+                <div class="newUserInputContainer"><label class="newUserText">District</label>
+                        <input type="text" id="district" required>
+                   
+                </div>
+                
+                <div class="newUserInputContainer"><label class="newUserText">State</label>
+                    <select id="stateName" name="state" required>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                    </select>
+                </div>
+
+                <div class="newUserInputContainer"><label class="newUserText">Postal Code</label>
+                    <input type="text" id="postCode" required>
+                </div>
+                <div class="newUserInputContainer newUserInputContainer1"><label class="newUserText">User have
+                        already account?</label>
+                    <input type="radio" id="yes" name="isAccount" value="yes" onchange="alreadyHaveAccount(this)"/>
+                    <label>Yes</label>
+                    <input type="radio" id="no" name="isAccount" value="no" onchange="alreadyHaveAccount(this)"/>
+                    <label>No</label>
+                </div>
+
+                <button id="userSubmit" type="submit">Add User</button>
+            </div>
+
+
+           <!-- new user Layout -->
+                <div class="referenceBody">
+                    <div class="referenceContainer">
+                        <h2>Enter Reference ID</h2>
+                            <div class="referenceText">
+                                <label for="referenceId">Reference ID:</label>
+                                <input type="text" id="referenceId" name="referenceId" required>
+                            </div>
+                            <button type="submit" class="referenceCheckUser">Submit</button>
+                    </div>
+                </div>
+                getServletInfo()
+
+        <script src="script.js"></script>
+</body>
+
+</html>
